@@ -35,6 +35,13 @@ type updatePayload struct {
 
 var domains = []domainDefinition{
 	domainDefinition{"kabala.tech", "@"},
+	domainDefinition{"kabala.tech", "jenkins"},
+	domainDefinition{"kabala.tech", "jklawyers"},
+	domainDefinition{"geotags.pl", "@"},
+	domainDefinition{"geotags.pl", "*"},
+	domainDefinition{"geotags.eu", "@"},
+	domainDefinition{"kabala.biz", "@"},
+	domainDefinition{"kabala.eu", "@"},
 }
 
 func getApiKey() string {
@@ -96,6 +103,7 @@ func fetchDomainInfo(ddefinition domainDefinition) []dnsRecord {
 	resp, err := client.Do(req)
 
 	if err != nil {
+		fmt.Println(err)
 		panic("Error during making a http request")
 	}
 
